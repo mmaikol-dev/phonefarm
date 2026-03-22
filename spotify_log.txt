@@ -1,0 +1,89 @@
+[20:51:32] =======================================================
+[20:51:32] 🎵 Spotify Bot — Fully Dynamic
+[20:51:32] 🎤 Artist:  Wakadinali
+[20:51:32] 🎯 Target:  10 streams
+[20:51:32] ⏱️  Per song: 35s
+[20:51:32] 🤖 Model: gemini-3-flash-preview
+[20:51:32] =======================================================
+[20:51:32] Starting in 5 seconds...
+[20:51:37] 
+🔄 ROUND 1 | ✅ 0/10
+
+[20:51:37] 📱 Opening Spotify...
+[20:51:44] ━━━ Going Home ━━━
+[20:51:49]    👆 Tap: Home tab (71,1530)
+[20:51:53] ━━━ STEP 2: Open Search ━━━
+[20:51:57]    👆 Tap: Search tab (default) (212,1530)
+[20:52:19]    🧠 Gemini call #1...
+[20:52:27]    💬 Answer: other
+[20:52:27]    Current screen: other
+[20:52:27] ⚠️  Got 'other' — asking Gemini to find search tab...
+[20:52:42]    🧠 Gemini call #2...
+[20:52:55]    💬 Answer: 0,0
+[20:52:55] ❌ Could not find search tab
+[20:52:55] ❌ Search failed — retrying round
+[20:52:55] 
+🔄 ROUND 2 | ✅ 0/10
+
+[20:52:55] 📱 Opening Spotify...
+[20:53:02] ━━━ Going Home ━━━
+[20:53:07]    👆 Tap: Home tab (71,1530)
+[20:53:10] ━━━ STEP 2: Open Search ━━━
+[20:53:13]    👆 Tap: Search tab (default) (212,1530)
+[20:55:17] =======================================================
+[20:55:17] 🎵 Spotify Bot — Fully Dynamic
+[20:55:17] 🎤 Artist:  Wakadinali
+[20:55:17] 🎯 Target:  10 streams
+[20:55:17] ⏱️  Per song: 35s
+[20:55:17] 🤖 Model: gemini-3-flash-preview
+[20:55:17] =======================================================
+[20:55:17] Starting in 5 seconds...
+[20:55:22] 
+🔄 ROUND 1 | ✅ 0/10
+
+[20:55:22] 📱 Opening Spotify...
+[20:55:29] ━━━ Going Home ━━━
+[20:55:29]    Foreground package: com.spotify.music
+[20:55:29]    👆 Tap: Home tab (71,1530)
+[20:55:32] ━━━ STEP 2: Open Search ━━━
+[20:55:37]    👆 Tap: Search tab (default) (212,1530)
+[20:55:57]    🧠 Gemini call #1...
+[20:56:02]    💬 Answer: home
+[20:56:02]    Current screen: home
+[20:56:02] ⚠️  Got 'home' — asking Gemini to find search tab...
+[20:56:17]    🧠 Gemini call #2...
+[20:56:27]    💬 Answer: 300,2320
+[20:56:27]    Gemini found search tab at: 300,2320
+[20:56:27]    👆 Tap: Search tab (Gemini found) (300,2320)
+[20:56:33] ━━━ STEP 3: Search for Artist ━━━
+[20:56:49]    🧠 Gemini call #3...
+[20:56:56]    💬 Answer: search
+[20:57:17]    🧠 Gemini call #4...
+[20:57:28]    💬 Answer: 500,336
+[20:57:28]    Search bar found at: 500,336
+[20:57:28]    👆 Tap: Search bar (500,336)
+[20:57:31]    ⌨️  Type: Wakadinali
+[20:57:56]    🧠 Gemini call #5...
+[20:58:02]    💬 Answer: results
+[20:58:02]    After search: results
+[20:58:02] ━━━ STEP 4: Tap Artist 'Wakadinali' ━━━
+[20:58:20]    🧠 Gemini call #6...
+[20:58:30]    💬 Answer: 375,235
+[20:58:30]    Artist found at: 375,235
+[20:58:30]    👆 Tap: Artist: Wakadinali (375,235)
+[20:58:51]    🧠 Gemini call #7...
+[20:58:57]    💬 Answer: results
+[20:58:57]    After tap: results
+[20:58:57] ⚠️  May not be on artist page — continuing anyway
+[20:58:57] ━━━ STEP 5: Follow Artist ━━━
+[20:59:17]    🧠 Gemini call #8...
+[20:59:24]    💬 Answer: 887,233
+[20:59:24]    Follow button at: 887,233
+[20:59:24]    👆 Tap: Follow (887,233)
+[20:59:26] ✅ Followed!
+[20:59:26] ━━━ STEP 6: Stream Songs ━━━
+[20:59:26] 
+[20:59:42]    🧠 Gemini call #9...
+[20:59:48]    💬 Answer: 485,700
+[20:59:48]    Song 1 at: 485,700
+[20:59:48]    👆 Tap: Song 1 (485,700)
