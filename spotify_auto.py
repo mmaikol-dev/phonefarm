@@ -11,7 +11,7 @@ import re
 import xml.etree.ElementTree as ET
 
 # ── CONFIG ────────────────────────────────────────
-API_KEY        = "AIzaSyA_Izjm325G8GJyDoF2yicPXO2z4YoU3vw"
+API_KEY        = "AIzaSyCfyU_Ifv9W-Y5K9EzS7ZKBYZ-xb-ewgFw"
 ARTIST_NAME    = "Wakadinali"
 STREAMS_TARGET = 10
 STREAM_SECONDS = 35
@@ -22,11 +22,11 @@ model = genai.GenerativeModel('gemini-3-flash-preview')
 
 # ── VERIFIED COORDINATES (1080x2400, density 440) ─
 COORDS = {
-    'home_tab':      (71,  1530),
-    'search_tab':    (212, 1530),
-    'library_tab':   (353, 1530),
-    'mini_player':   (360, 1419),
-    'mini_play':     (641, 1419),
+    'home_tab':      (108, 2288),
+    'search_tab':    (324, 2288),
+    'library_tab':   (540, 2288),
+    'mini_player':   (540, 2169),
+    'mini_play':     (981, 2169),
     'back_button':   (71,  111),
 }
 
@@ -172,6 +172,14 @@ def find_first_node(root, predicate):
             return node
     return None
 
+def iter_nodes(root):
+    if root is None:
+        return []
+    return list(root.iter('node'))
+
+def child_nodes(node):
+    return list(node)
+
 def textish(node):
     values = [
         node.attrib.get('text', ''),
@@ -193,41 +201,171 @@ def find_ui_coords(*terms):
 
     return bounds_center(node.attrib.get('bounds'))
 
-def find_search_tab_coords():
-    return find_ui_coords('search')
+def node_package(node):
+    return node.attrib.get('package', '')
 
-def find_search_field_coords():
-    candidates = [
-        ('what do you want to listen to',),
-        ('search',),
-    ]
-    for terms in candidates:
-        x, y = find_ui_coords(*terms)
-        if x and y and y < 500:
-            return x, y
-    return None, None
+def node_clickable(node):
+    return node.attrib.get('clickable') == 'true'
 
-def find_artist_result_coords(artist_name):
-    root = dump_ui()
-    artist_lower = artist_name.lower()
+def node_bounds(node):
+    return parse_bounds(node.attrib.get('bounds'))
 
-    node = find_first_node(
-        root,
-        lambda item: artist_lower in item.attrib.get('text', '').lower()
-        or artist_lower in item.attrib.get('content-desc', '').lower()
-    )
-    if not node:
-        return None, None
+def node_center(node):
+    return bounds_center(node.attrib.get('bounds'))
 
-    parsed = parse_bounds(node.attrib.get('bounds'))
+def center_left_of_node(node):
+    parsed = node_bounds(node)
     if not parsed:
         return None, None
-
     x1, y1, x2, y2 = parsed
-    # Bias left-center of the row so we avoid overflow/three-dot actions.
     safe_x = x1 + max(40, (x2 - x1) // 4)
     safe_y = (y1 + y2) // 2
     return safe_x, safe_y
+
+def node_resource_id(node):
+    return node.attrib.get('resource-id', '')
+
+def node_text(node):
+    return node.attrib.get('text', '').strip()
+
+def node_desc(node):
+    return node.attrib.get('content-desc', '').strip()
+
+def find_node_by_resource_id(resource_id):
+    root = dump_ui()
+    return find_first_node(
+        root,
+        lambda item: node_resource_id(item) == resource_id
+    )
+
+def node_has_desc_prefix(node, prefix):
+    return node_desc(node).lower().startswith(prefix.lower())
+
+def node_label_contains(node, text):
+    lowered = text.lower()
+    return lowered in node_text(node).lower() or lowered in node_desc(node).lower()
+
+def find_row_root_by_title(title_text, subtitle_text=None):
+    root = dump_ui()
+    title_lower = title_text.lower()
+    subtitle_lower = subtitle_text.lower() if subtitle_text else None
+
+    for node in iter_nodes(root):
+        if node_resource_id(node) != 'com.spotify.music:id/row_root':
+            continue
+
+        found_title = False
+        found_subtitle = subtitle_lower is None
+
+        for child in node.iter('node'):
+            resource_id = node_resource_id(child)
+            text_value = node_text(child).lower()
+
+            if resource_id == 'com.spotify.music:id/title' and title_lower in text_value:
+                found_title = True
+            if subtitle_lower and resource_id == 'com.spotify.music:id/subtitle' and subtitle_lower in text_value:
+                found_subtitle = True
+
+        if found_title and found_subtitle:
+            return node
+
+    return None
+
+def find_search_results_rows():
+    root = dump_ui()
+    rows = []
+    for node in iter_nodes(root):
+        if node_resource_id(node) == 'com.spotify.music:id/row_root':
+            rows.append(node)
+    return rows
+
+def find_search_tab_coords():
+    root = dump_ui()
+    node = find_first_node(
+        root,
+        lambda item: node_clickable(item) and node_has_desc_prefix(item, 'Search, Tab')
+    )
+    if not node:
+        return None, None
+    return node_center(node)
+
+def find_search_field_coords():
+    for resource_id in (
+        'com.spotify.music:id/query',
+        'com.spotify.music:id/search_field_root',
+    ):
+        node = find_node_by_resource_id(resource_id)
+        if node:
+            return node_center(node)
+
+    root = dump_ui()
+    node = find_first_node(
+        root,
+        lambda item: node_clickable(item) and (
+            node_label_contains(item, 'what do you want to listen to')
+            or node_label_contains(item, 'search')
+        ) and node_center(item)[1] < 400
+    )
+    if node:
+        return node_center(node)
+    return None, None
+
+def find_artist_result_coords(artist_name):
+    node = find_row_root_by_title(artist_name, 'artist')
+    if not node:
+        return None, None
+    return center_left_of_node(node)
+
+def find_follow_button_coords():
+    for node in find_search_results_rows():
+        found_artist = False
+        follow_button = None
+
+        for child in node.iter('node'):
+            resource_id = node_resource_id(child)
+            if resource_id == 'com.spotify.music:id/subtitle' and 'artist' in node_text(child).lower():
+                found_artist = True
+            if resource_id == 'com.spotify.music:id/follow_button':
+                follow_button = child
+
+        if found_artist and follow_button:
+            return node_center(follow_button)
+
+    node = find_node_by_resource_id('com.spotify.music:id/follow_button')
+    if node:
+        return node_center(node)
+    return None, None
+
+def find_song_row_coords_from_ui():
+    rows = []
+
+    for node in find_search_results_rows():
+        title_node = None
+        subtitle_node = None
+
+        for child in node.iter('node'):
+            resource_id = node_resource_id(child)
+            if resource_id == 'com.spotify.music:id/title':
+                title_node = child
+            elif resource_id == 'com.spotify.music:id/subtitle':
+                subtitle_node = child
+
+        if not title_node or not subtitle_node:
+            continue
+
+        subtitle_text = node_text(subtitle_node).lower()
+        if 'song' not in subtitle_text:
+            continue
+
+        row_bounds = node_bounds(node)
+        if not row_bounds:
+            continue
+
+        _, y1, _, _ = row_bounds
+        rows.append((y1, center_left_of_node(node), node_text(title_node)))
+
+    rows.sort(key=lambda item: item[0])
+    return [coords for _, coords, _ in rows]
 
 def extract_xy(answer):
     pair_match = re.search(r'(\d{1,4})\s*,\s*(\d{1,4})', answer)
@@ -308,6 +446,10 @@ def step_go_to_search():
 
     # Check what screen we're on
     screen = capture()
+    if find_search_field_coords() != (None, None):
+        log("✅ Search field detected from UI dump")
+        return True, screen
+
     current = what_screen_is_this(screen)
     log(f"   Current screen: {current}")
 
@@ -333,13 +475,13 @@ def step_activate_and_type():
     log("━━━ STEP 3: Search for Artist ━━━")
 
     screen = capture()
-    current = what_screen_is_this(screen)
+    search_field_x, search_field_y = find_search_field_coords()
+    current = 'search_active' if search_field_x and search_field_y else what_screen_is_this(screen)
 
     if current != 'search_active':
-        x, y = find_search_field_coords()
-        if x and y:
-            log(f"   Search field found from UI dump at: {x},{y}")
-            tap(x, y, "Search field (UI dump)")
+        if search_field_x and search_field_y:
+            log(f"   Search field found from UI dump at: {search_field_x},{search_field_y}")
+            tap(search_field_x, search_field_y, "Search field (UI dump)")
         else:
             x, y = find_element_coords(screen,
                 "The search input field/bar that says 'What do you want to listen to?' in Spotify")
@@ -398,7 +540,7 @@ def step_tap_artist(screen):
 def step_follow_artist(screen):
     log("━━━ STEP 5: Follow Artist ━━━")
 
-    x, y = find_ui_coords('follow')
+    x, y = find_follow_button_coords()
     if not (x and y):
         x, y = find_element_coords(screen,
             "The Follow button on this Spotify artist page")
@@ -411,6 +553,18 @@ def step_follow_artist(screen):
         log("ℹ️  Follow button not found (may already follow)")
 
 def find_song_row_coords(screen, ordinal):
+    song_coords = find_song_row_coords_from_ui()
+    ordinal_index = {
+        'first': 0,
+        'second': 1,
+        'third': 2,
+        'fourth': 3,
+        'fifth': 4,
+    }
+    index = ordinal_index.get(ordinal)
+    if index is not None and index < len(song_coords):
+        return song_coords[index]
+
     return find_element_coords(screen, f"""
         The {ordinal} visible song row in the Popular songs list on this Spotify artist page.
         Return coordinates for the song title area on the left side of the row.

@@ -87,3 +87,204 @@
 [20:59:48]    💬 Answer: 485,700
 [20:59:48]    Song 1 at: 485,700
 [20:59:48]    👆 Tap: Song 1 (485,700)
+[21:00:09]    🧠 Gemini call #10...
+[21:00:12]    💬 Answer: no
+[21:00:12]    ⚠️  Not confirmed playing — waiting anyway
+[21:00:50] 
+[21:01:06]    🧠 Gemini call #11...
+[21:01:09]    💬 Answer: 0,0
+[21:01:09]    Using fallback coords for song 2: 360,940
+[21:01:09]    👆 Tap: Song 2 (360,940)
+[21:01:30]    🧠 Gemini call #12...
+[21:01:31]    💬 Answer: no
+[21:01:31]    ⚠️  Not confirmed playing — waiting anyway
+[21:02:09] 
+[21:08:59] =======================================================
+[21:08:59] 🎵 Spotify Bot — Fully Dynamic
+[21:08:59] 🎤 Artist:  Wakadinali
+[21:08:59] 🎯 Target:  10 streams
+[21:08:59] ⏱️  Per song: 35s
+[21:08:59] 🤖 Model: gemini-3-flash-preview
+[21:08:59] =======================================================
+[21:08:59] Starting in 5 seconds...
+[21:09:04] 
+🔄 ROUND 1 | ✅ 0/10
+
+[21:09:04] 📱 Opening Spotify...
+[21:09:11] ━━━ Going Home ━━━
+[21:09:11]    Foreground package: com.spotify.music
+[21:09:11]    👆 Tap: Home tab (71,1530)
+[21:09:15] ━━━ STEP 2: Open Search ━━━
+[21:09:18]    👆 Tap: Search tab (default) (212,1530)
+[21:09:38]    🧠 Gemini call #1...
+[21:09:58] =======================================================
+[21:09:58] 🎵 Spotify Bot — Fully Dynamic
+[21:09:58] 🎤 Artist:  Wakadinali
+[21:09:58] 🎯 Target:  10 streams
+[21:09:58] ⏱️  Per song: 35s
+[21:09:58] 🤖 Model: gemini-3-flash-preview
+[21:09:58] =======================================================
+[21:09:58] Starting in 5 seconds...
+[21:10:03] 
+🔄 ROUND 1 | ✅ 0/10
+
+[21:10:03] 📱 Opening Spotify...
+[21:10:10] ━━━ Going Home ━━━
+[21:10:10]    Foreground package: com.spotify.music
+[21:10:10]    👆 Tap: Home tab (71,1530)
+[21:10:13] ━━━ STEP 2: Open Search ━━━
+[21:10:16]    👆 Tap: Search tab (default) (212,1530)
+[21:10:36]    🧠 Gemini call #1...
+[21:10:47]    💬 Answer: other
+[21:10:47]    Current screen: other
+[21:10:47] ⚠️  Got 'other' — asking Gemini to find search tab...
+[21:11:02]    🧠 Gemini call #2...
+[21:11:10]    💬 Answer: 300,2350
+[21:11:10]    Gemini found search tab at: 300,2350
+[21:11:10]    👆 Tap: Search tab (Gemini found) (300,2350)
+[21:11:15] ━━━ STEP 3: Search for Artist ━━━
+[21:11:32]    🧠 Gemini call #3...
+[21:11:38]    💬 Answer: search
+[21:12:01]    🧠 Gemini call #4...
+[21:12:09]    💬 Answer: 540,292
+[21:12:09]    Search bar found at: 540,292
+[21:12:09]    👆 Tap: Search bar (540,292)
+[21:12:12]    ⌨️  Type: Wakadinali
+[21:12:36]    🧠 Gemini call #5...
+[21:12:44]    💬 Answer: results
+[21:12:44]    After search: results
+[21:12:44] ━━━ STEP 4: Tap Artist 'Wakadinali' ━━━
+[21:13:01]    🧠 Gemini call #6...
+[21:13:12]    💬 Answer: 400,233
+[21:13:12]    Artist found at: 400,233
+[21:13:12]    👆 Tap: Artist: Wakadinali (400,233)
+[21:13:32]    🧠 Gemini call #7...
+[21:13:37]    💬 Answer: results
+[21:13:37]    After tap: results
+[21:13:37] ⚠️  May not be on artist page — continuing anyway
+[21:13:37] ━━━ STEP 5: Follow Artist ━━━
+[21:13:55]    🧠 Gemini call #8...
+[21:13:57]    ⏳ Rate limit — waiting 60s...
+[21:16:45] =======================================================
+[21:16:45] 🎵 Spotify Bot — Fully Dynamic
+[21:16:45] 🎤 Artist:  Wakadinali
+[21:16:45] 🎯 Target:  10 streams
+[21:16:45] ⏱️  Per song: 35s
+[21:16:45] 🤖 Model: gemini-3-flash-preview
+[21:16:45] =======================================================
+[21:16:45] Starting in 5 seconds...
+[21:16:50] 
+🔄 ROUND 1 | ✅ 0/10
+
+[21:16:50] 📱 Opening Spotify...
+[21:16:57] ━━━ Going Home ━━━
+[21:16:57]    Foreground package: com.spotify.music
+[21:16:57]    👆 Tap: Home tab (71,1530)
+[21:17:01] ━━━ STEP 2: Open Search ━━━
+[21:17:03]    👆 Tap: Search tab (default) (212,1530)
+[21:17:23]    🧠 Gemini call #1...
+[21:17:25]    ⏳ Rate limit — waiting 60s...
+[21:18:40]    🧠 Gemini call #2...
+[21:18:43]    ⏳ Rate limit — waiting 60s...
+[21:19:07] =======================================================
+[21:19:07] 🎵 Spotify Bot — Fully Dynamic
+[21:19:07] 🎤 Artist:  Wakadinali
+[21:19:07] 🎯 Target:  10 streams
+[21:19:07] ⏱️  Per song: 35s
+[21:19:07] 🤖 Model: gemini-3-flash-preview
+[21:19:07] =======================================================
+[21:19:07] Starting in 5 seconds...
+[21:19:12] 
+🔄 ROUND 1 | ✅ 0/10
+
+[21:19:12] 📱 Opening Spotify...
+[21:19:19] ━━━ Going Home ━━━
+[21:19:19]    Foreground package: com.spotify.music
+[21:19:19]    👆 Tap: Home tab (71,1530)
+[21:19:23] ━━━ STEP 2: Open Search ━━━
+[21:19:26]    👆 Tap: Search tab (default) (212,1530)
+[21:19:46]    🧠 Gemini call #1...
+[21:19:50]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:19:50]    Current screen: other
+[21:19:50] ⚠️  Got 'other' — asking Gemini to find search tab...
+[21:20:05]    🧠 Gemini call #2...
+[21:20:07]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:20:07] ❌ Could not find search tab
+[21:20:07] ❌ Search failed — retrying round
+[21:20:07] 
+🔄 ROUND 2 | ✅ 0/10
+
+[21:20:07] 📱 Opening Spotify...
+[21:20:13] ━━━ Going Home ━━━
+[21:20:13]    Foreground package: com.spotify.music
+[21:20:13]    👆 Tap: Home tab (71,1530)
+[21:20:17] ━━━ STEP 2: Open Search ━━━
+[21:20:19]    👆 Tap: Search tab (default) (212,1530)
+[21:20:39]    🧠 Gemini call #3...
+[21:20:41]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:20:41]    Current screen: other
+[21:20:41] ⚠️  Got 'other' — asking Gemini to find search tab...
+[21:20:56]    🧠 Gemini call #4...
+[21:20:58]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:20:58] ❌ Could not find search tab
+[21:20:58] ❌ Search failed — retrying round
+[21:20:58] 
+🔄 ROUND 3 | ✅ 0/10
+
+[21:20:58] 📱 Opening Spotify...
+[21:21:04] ━━━ Going Home ━━━
+[21:21:04]    Foreground package: com.spotify.music
+[21:21:04]    👆 Tap: Home tab (71,1530)
+[21:21:08] ━━━ STEP 2: Open Search ━━━
+[21:21:11]    👆 Tap: Search tab (default) (212,1530)
+[21:21:31]    🧠 Gemini call #5...
+[21:21:34]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:21:34]    Current screen: other
+[21:21:34] ⚠️  Got 'other' — asking Gemini to find search tab...
+[21:21:49]    🧠 Gemini call #6...
+[21:21:52]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:21:52] ❌ Could not find search tab
+[21:21:52] ❌ Search failed — retrying round
+[21:21:52] 
+🔄 ROUND 4 | ✅ 0/10
+
+[21:21:52] 📱 Opening Spotify...
+[21:21:58] ━━━ Going Home ━━━
+[21:21:59]    Foreground package: com.spotify.music
+[21:21:59]    👆 Tap: Home tab (71,1530)
+[21:22:02] ━━━ STEP 2: Open Search ━━━
+[21:22:04]    👆 Tap: Search tab (default) (212,1530)
+[21:22:13] =======================================================
+[21:22:13] 🎵 Spotify Bot — Fully Dynamic
+[21:22:13] 🎤 Artist:  Wakadinali
+[21:22:13] 🎯 Target:  10 streams
+[21:22:13] ⏱️  Per song: 35s
+[21:22:13] 🤖 Model: gemini-3-flash-preview
+[21:22:13] =======================================================
+[21:22:13] Starting in 5 seconds...
+[21:22:18] 
+🔄 ROUND 1 | ✅ 0/10
+
+[21:22:18] 📱 Opening Spotify...
+[21:22:25] ━━━ Going Home ━━━
+[21:22:25]    Foreground package: com.spotify.music
+[21:22:25]    👆 Tap: Home tab (108,2288)
+[21:22:28] ━━━ STEP 2: Open Search ━━━
+[21:22:31]    👆 Tap: Search tab (default) (324,2288)
+[21:22:59]    🧠 Gemini call #1...
+[21:23:02]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:23:02]    Current screen: other
+[21:23:02] ⚠️  Got 'other' — asking Gemini to find search tab...
+[21:23:17]    🧠 Gemini call #2...
+[21:23:18]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:23:18] ❌ Could not find search tab
+[21:23:18] ❌ Search failed — retrying round
+[21:23:18] 
+🔄 ROUND 2 | ✅ 0/10
+
+[21:23:18] 📱 Opening Spotify...
+[21:23:25] ━━━ Going Home ━━━
+[21:23:25]    Foreground package: com.spotify.music
+[21:23:25]    👆 Tap: Home tab (108,2288)
+[21:23:28] ━━━ STEP 2: Open Search ━━━
+[21:23:31]    👆 Tap: Search tab (default) (324,2288)
