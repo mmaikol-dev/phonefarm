@@ -15,7 +15,7 @@ LOG_FILE = 'spotify_log.txt'
 UI_WAIT_SECONDS = 10
 UI_POLL_SECONDS = 0.8
 
-# Coordinates for 1080x2400 resolution
+# Coordinates for 1080x2400 resolution – used as fallbacks
 COORDS = {
     'home_tab': (100, 2328),
     'search_tab': (324, 2288),
@@ -29,13 +29,6 @@ COORDS = {
         (227, 951),
         (226, 1101),
         (226, 1254),
-    ],
-    'play_button_on_song': [
-        (950, 655),
-        (950, 807),
-        (950, 951),
-        (950, 1101),
-        (950, 1254),
     ],
 }
 
@@ -656,6 +649,64 @@ def find_follow_button_coords():
     return COORDS['artist_follow']
 
 
+def find_song_rows():
+    """Find all song rows in the artist's popular list."""
+    root = dump_ui()
+    if root is None:
+        return []
+    
+    rows = []
+    for node in iter_nodes(root):
+        # Look for nodes that likely represent a song row
+        # Typically these have children with resource-ids "title" and "subtitle"
+        title_node = None
+        subtitle_node = None
+        
+        for child in node.iter('node'):
+            rid = node_resource_id(child)
+            if rid == 'com.spotify.music:id/title':
+                title_node = child
+            elif rid == 'com.spotify.music:id/subtitle':
+                subtitle_node = child
+        
+        if title_node is None or subtitle_node is None:
+            continue
+        
+        title = node_text(title_node)
+        subtitle = node_text(subtitle_node).lower()
+        
+        # Skip if it's clearly not a song (e.g., playlist, album, podcast)
+        if any(skip in subtitle for skip in ['playlist', 'album', 'podcast', 'episode', 'video']):
+            continue
+        
+        # If it has a duration like "3:45" or contains "song"/"track", likely a song
+        if 'song' in subtitle or 'track' in subtitle or re.search(r'\d+:\d+', subtitle):
+            x, y = node_center(node)
+            if x is not None and y is not None:
+                # Try to tap on the left side where the title is
+                bounds = parse_bounds(node.attrib.get('bounds', ''))
+                if bounds:
+                    x1, _, x2, _ = bounds
+                    # Tap at one quarter from left (where title usually is)
+                    tap_x = x1 + (x2 - x1) // 4
+                else:
+                    tap_x = x - 180  # fallback
+                rows.append((y, (tap_x, y), title))
+    
+    # Sort by Y coordinate (top to bottom)
+    rows.sort(key=lambda item: item[0])
+    
+    # Remove duplicates by title (some rows might appear twice due to hierarchy)
+    seen = set()
+    unique_rows = []
+    for _, coords, title in rows:
+        if title not in seen:
+            seen.add(title)
+            unique_rows.append((coords, title))
+    
+    return unique_rows
+
+
 def step_go_home():
     """Navigate to Spotify home screen."""
     log('━━━ STEP 1: Reset to Home ━━━')
@@ -728,37 +779,45 @@ def step_stream_songs():
     log('━━━ STEP 6: Stream Songs ━━━')
     streams = 0
     
-    for index in range(len(COORDS['song_rows'])):
+    # Scroll to make sure the Popular songs section is visible
+    log('   📜 Scrolling to songs...')
+    adb(['shell', 'input', 'swipe', '540', '1200', '540', '400', '300'])
+    time.sleep(1.5)
+    
+    # Get dynamic song rows
+    song_rows = find_song_rows()
+    if not song_rows:
+        log('   ⚠️ No song rows found dynamically, using fallback')
+        song_rows = [(coords, f'Song {i+1}') for i, coords in enumerate(COORDS['song_rows'])]
+    
+    log(f'   Found {len(song_rows)} songs to stream')
+    
+    for index, (coords, title) in enumerate(song_rows[:5], 1):
         if streams >= STREAMS_TARGET:
             break
-            
-        log(f'\n   🎵 Attempting to stream song {index + 1}')
         
-        song_coords = COORDS['song_rows'][index]
-        play_button_coords = COORDS['play_button_on_song'][index]
+        x, y = coords
+        log(f'\n   🎵 Song {index}: {title}')
+        log(f'   👆 Tapping song row at ({x}, {y})')
+        tap(x, y, title)
         
-        # Try play button first
-        log(f'   👆 Tapping play button at {play_button_coords}')
-        tap(play_button_coords[0], play_button_coords[1], f'Song {index + 1} Play Button')
-        
-        if not wait_for('Playback to start', confirm_playback_started, timeout=8, poll=1):
-            log(f'   ⚠️ Play button didn\'t work, trying song row at {song_coords}')
-            tap(song_coords[0], song_coords[1], f'Song {index + 1} Row')
-            
-            if not wait_for('Playback to start', confirm_playback_started, timeout=8, poll=1):
-                log(f'   ❌ Could not start song {index + 1}, skipping')
-                press_back()
-                time.sleep(2)
-                continue
+        # Wait for playback to start
+        if not wait_for('Playback to start', confirm_playback_started, timeout=12, poll=1.5):
+            log(f'   ⚠️ Playback not confirmed, skipping')
+            press_back()
+            time.sleep(2)
+            continue
         
         log(f'   ▶️ Streaming for {STREAM_SECONDS}s...')
         time.sleep(STREAM_SECONDS + random.randint(0, 3))
         streams += 1
         log(f'   ✅ Stream {streams} counted')
         
+        # Go back to artist page
         press_back()
         time.sleep(2)
         
+        # Verify we're back on artist page
         if not is_artist_screen():
             log('   ↩️ Lost artist page, pressing back again')
             press_back()

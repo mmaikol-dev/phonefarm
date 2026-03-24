@@ -1200,3 +1200,338 @@
 [15:21:10] =======================================================
 [15:21:10] ✅ DONE! 0/10 streams for Wakadinali
 [15:21:10] =======================================================
+[15:28:24] =======================================================
+[15:28:24] 🎵 Spotify Bot — UI Automator Control
+[15:28:24] 🎤 Artist: Wakadinali
+[15:28:24] 🎯 Target: 10 streams
+[15:28:24] ⏱️ Per song: 35s
+[15:28:24] =======================================================
+[15:28:24] ✅ ADB device detected
+[15:28:24] Starting in 5 seconds...
+[15:28:29] 
+🔄 ROUND 1 | ✅ 0/10
+
+[15:28:29] 📱 Opening Spotify...
+[15:28:29] 🔓 Waking and unlocking phone...
+[15:28:41] ━━━ STEP 1: Reset to Home ━━━
+[15:28:41]    👆 Tap: Home tab (100,2328)
+[15:28:48] ━━━ STEP 2: Open Search ━━━
+[15:28:52]    👆 Tap: Search tab (attempt 1) (324,2287)
+[15:29:07]    ✅ Search screen
+[15:29:07] ━━━ STEP 3: Search Wakadinali ━━━
+[15:29:07]    🔍 Ensuring search field is ready
+[15:29:08]    🔍 Focusing search field
+[15:29:08]    Trying known coordinate (350, 124)
+[15:29:08]    👆 Tap: Known search field (350,124)
+[15:29:11]    Known coordinate failed, trying UI detection
+[15:29:15]    Found search field via placeholder text at (397,332)
+[15:29:15]    UI detected search field at (397, 332)
+[15:29:15]    👆 Tap: UI-detected search field (397,332)
+[15:29:18]    ✅ Keyboard is visible
+[15:29:18]    🧹 Clearing search field
+[15:29:20]    ⌨️ Typing: "Wakadinali"
+[15:29:25]    ✅ Verified text in search field: "Wakadinali"
+[15:29:25]    ⌨️ Pressing Enter
+[15:29:30]    ✅ Search results
+[15:29:30] ━━━ STEP 4: Open Artist 'Wakadinali' ━━━
+[15:29:33]    👆 Tap: Artist: Wakadinali (320,560)
+[15:29:41]    ✅ Artist page
+[15:29:41] ━━━ STEP 5: Follow Artist ━━━
+[15:29:46]    👆 Tap: Follow (297,971)
+[15:29:49] ━━━ STEP 6: Stream Songs ━━━
+[15:29:52]    Found 5 songs to stream
+[15:29:52] 
+   🎵 Song 1: Song 1
+[15:29:52]    👆 Tapping song row at (232, 655)
+[15:29:52]    👆 Tap: Song 1 (232,655)
+[15:30:07]    ❌ Timed out waiting for Playback to start
+[15:30:07]    ⚠️ Playback not confirmed, skipping
+[15:30:10] 
+   🎵 Song 2: Song 2
+[15:30:10]    👆 Tapping song row at (229, 807)
+[15:30:10]    👆 Tap: Song 2 (229,807)
+[15:30:21] 
+⚠️ Bot interrupted by user
+[15:30:21] 
+[15:30:21] =======================================================
+[15:30:21] ✅ DONE! 0/10 streams for Wakadinali
+[15:30:21] =======================================================
+[15:39:37] =======================================================
+[15:39:37] 🎵 Spotify Bot — UI Automator Control
+[15:39:37] 🎤 Artist: Wakadinali
+[15:39:37] 🎯 Target: 10 streams
+[15:39:37] ⏱️ Per song: 35s
+[15:39:37] =======================================================
+[15:39:37] ✅ ADB device detected
+[15:39:37] Starting in 5 seconds...
+[15:39:42] 
+🔄 ROUND 1 | ✅ 0/10
+
+[15:39:42] 📱 Opening Spotify...
+[15:39:42] 🔓 Waking and unlocking phone...
+[15:39:55] ━━━ STEP 1: Reset to Home ━━━
+[15:39:55]    👆 Tap: Home tab (100,2328)
+[15:40:02] ━━━ STEP 2: Open Search ━━━
+[15:40:06]    👆 Tap: Search tab (attempt 1) (324,2287)
+[15:40:22]    ✅ Search screen
+[15:40:22] ━━━ STEP 3: Search Wakadinali ━━━
+[15:40:22]    🔍 Ensuring search field is ready
+[15:40:22]    🔍 Focusing search field
+[15:40:22]    Trying known coordinate (350, 124)
+[15:40:22]    👆 Tap: Known search field (350,124)
+[15:40:26]    Known coordinate failed, trying UI detection
+[15:40:29]    Found search field via placeholder text at (397,332)
+[15:40:29]    UI detected search field at (397, 332)
+[15:40:29]    👆 Tap: UI-detected search field (397,332)
+[15:40:32]    ✅ Keyboard is visible
+[15:40:32]    🧹 Clearing search field
+[15:40:34]    ⌨️ Typing: "Wakadinali"
+[15:40:40]    ✅ Verified text in search field: "Wakadinali"
+[15:40:40]    ⌨️ Pressing Enter
+[15:40:45]    ✅ Search results
+[15:40:45] ━━━ STEP 4: Open Artist 'Wakadinali' ━━━
+[15:40:48]    👆 Tap: Artist: Wakadinali (320,560)
+[15:40:56]    ✅ Artist page
+[15:40:56] ━━━ STEP 5: Follow Artist ━━━
+[15:41:00]    👆 Tap: Follow (276,971)
+[15:41:04] ━━━ STEP 6: Stream Songs ━━━
+[15:41:04]    📜 Scrolling to songs...
+[15:41:10]    ⚠️ No song rows found dynamically, using fallback
+[15:41:10]    Found 5 songs to stream
+[15:41:10] 
+   🎵 Song 1: Song 1
+[15:41:10]    👆 Tapping song row at (232, 655)
+[15:41:10]    👆 Tap: Song 1 (232,655)
+[15:41:24]    ❌ Timed out waiting for Playback to start
+[15:41:24]    ⚠️ Playback not confirmed, skipping
+[15:41:27] 
+   🎵 Song 2: Song 2
+[15:41:27]    👆 Tapping song row at (229, 807)
+[15:41:27]    👆 Tap: Song 2 (229,807)
+[15:41:34] 
+⚠️ Bot interrupted by user
+[15:41:34] 
+[15:41:34] =======================================================
+[15:41:34] ✅ DONE! 0/10 streams for Wakadinali
+[15:41:34] =======================================================
+[15:43:56] =======================================================
+[15:43:56] 🎵 Spotify Bot — UI Automator Control
+[15:43:56] 🎤 Artist: Wakadinali
+[15:43:56] 🎯 Target: 10 streams
+[15:43:56] ⏱️ Per song: 35s
+[15:43:56] =======================================================
+[15:43:56] ✅ ADB device detected
+[15:43:56] Starting in 5 seconds...
+[15:44:01] 
+🔄 ROUND 1 | ✅ 0/10
+
+[15:44:01] 📱 Opening Spotify...
+[15:44:01] 🔓 Waking and unlocking phone...
+[15:44:13] ━━━ STEP 1: Reset to Home ━━━
+[15:44:13]    👆 Tap: Home tab (100,2328)
+[15:44:54]    👆 Tap: Home tab (100,2288)
+[15:45:01] ━━━ STEP 2: Open Search ━━━
+[15:45:05]    👆 Tap: Search tab (attempt 1) (324,2287)
+[15:45:21]    ✅ Search screen
+[15:45:21] ━━━ STEP 3: Search Wakadinali ━━━
+[15:45:21]    🔍 Ensuring search field is ready
+[15:45:22]    🔍 Focusing search field
+[15:45:22]    Trying known coordinate (350, 124)
+[15:45:22]    👆 Tap: Known search field (350,124)
+[15:45:25]    Known coordinate failed, trying UI detection
+[15:45:29]    Found search field via placeholder text at (397,332)
+[15:45:29]    UI detected search field at (397, 332)
+[15:45:29]    👆 Tap: UI-detected search field (397,332)
+[15:45:32]    ✅ Keyboard is visible
+[15:45:32]    🧹 Clearing search field
+[15:45:34]    ⌨️ Typing: "Wakadinali"
+[15:45:41]    ✅ Verified text in search field: "Wakadinali"
+[15:45:41]    ⌨️ Pressing Enter
+[15:45:46]    ✅ Search results
+[15:45:46] ━━━ STEP 4: Open Artist 'Wakadinali' ━━━
+[15:45:49]    👆 Tap: Artist: Wakadinali (320,1198)
+[15:45:57]    ✅ Artist page
+[15:45:57] ━━━ STEP 5: Follow Artist ━━━
+[15:46:01]    👆 Tap: Follow (297,971)
+[15:46:04] ━━━ STEP 6: Stream Songs ━━━
+[15:46:04]    📜 Scrolling to songs...
+[15:46:09]    ⚠️ No song rows found dynamically, using fallback
+[15:46:09]    Found 5 songs to stream
+[15:46:09] 
+   🎵 Song 1: Song 1
+[15:46:09]    👆 Tapping song row at (232, 655)
+[15:46:09]    👆 Tap: Song 1 (232,655)
+[15:46:23]    ❌ Timed out waiting for Playback to start
+[15:46:23]    ⚠️ Playback not confirmed, skipping
+[15:46:27] 
+   🎵 Song 2: Song 2
+[15:46:27]    👆 Tapping song row at (229, 807)
+[15:46:27]    👆 Tap: Song 2 (229,807)
+[15:46:42]    ❌ Timed out waiting for Playback to start
+[15:46:42]    ⚠️ Playback not confirmed, skipping
+[15:46:45] 
+   🎵 Song 3: Song 3
+[15:46:45]    👆 Tapping song row at (227, 951)
+[15:46:45]    👆 Tap: Song 3 (227,951)
+[15:47:00]    ❌ Timed out waiting for Playback to start
+[15:47:00]    ⚠️ Playback not confirmed, skipping
+[15:47:03] 
+   🎵 Song 4: Song 4
+[15:47:03]    👆 Tapping song row at (226, 1101)
+[15:47:03]    👆 Tap: Song 4 (226,1101)
+[15:47:19]    ❌ Timed out waiting for Playback to start
+[15:47:19]    ⚠️ Playback not confirmed, skipping
+[15:47:22] 
+   🎵 Song 5: Song 5
+[15:47:22]    👆 Tapping song row at (226, 1254)
+[15:47:22]    👆 Tap: Song 5 (226,1254)
+[15:47:37]    ❌ Timed out waiting for Playback to start
+[15:47:37]    ⚠️ Playback not confirmed, skipping
+[15:47:40] 
+📊 Round 1: +0 streams | Total: 0/10
+[15:47:40] 😴 Break: 24s...
+[15:48:04] 
+🔄 ROUND 2 | ✅ 0/10
+
+[15:48:04] 📱 Opening Spotify...
+[15:48:04] 🔓 Waking and unlocking phone...
+[15:48:15] ━━━ STEP 1: Reset to Home ━━━
+[15:48:16]    👆 Tap: Home tab (100,2328)
+[15:48:22] ━━━ STEP 2: Open Search ━━━
+[15:48:25]    👆 Tap: Search tab (attempt 1) (324,2287)
+[15:48:42]    ✅ Search screen
+[15:48:42] ━━━ STEP 3: Search Wakadinali ━━━
+[15:48:42]    🔍 Ensuring search field is ready
+[15:48:43]    🔍 Focusing search field
+[15:48:43]    Trying known coordinate (350, 124)
+[15:48:43]    👆 Tap: Known search field (350,124)
+[15:48:46]    Known coordinate failed, trying UI detection
+[15:48:49]    Found search field via placeholder text at (397,332)
+[15:48:49]    UI detected search field at (397, 332)
+[15:48:49]    👆 Tap: UI-detected search field (397,332)
+[15:48:52]    ✅ Keyboard is visible
+[15:48:52]    🧹 Clearing search field
+[15:48:54]    ⌨️ Typing: "Wakadinali"
+[15:49:00]    ✅ Verified text in search field: "Wakadinali"
+[15:49:00]    ⌨️ Pressing Enter
+[15:49:05]    ✅ Search results
+[15:49:05] ━━━ STEP 4: Open Artist 'Wakadinali' ━━━
+[15:49:09]    👆 Tap: Artist: Wakadinali (320,560)
+[15:49:17]    ✅ Artist page
+[15:49:17] ━━━ STEP 6: Stream Songs ━━━
+[15:49:17]    📜 Scrolling to songs...
+[15:49:22]    ⚠️ No song rows found dynamically, using fallback
+[15:49:22]    Found 5 songs to stream
+[15:49:22] 
+   🎵 Song 1: Song 1
+[15:49:22]    👆 Tapping song row at (232, 655)
+[15:49:22]    👆 Tap: Song 1 (232,655)
+[15:49:36]    ❌ Timed out waiting for Playback to start
+[15:49:36]    ⚠️ Playback not confirmed, skipping
+[15:49:39] 
+   🎵 Song 2: Song 2
+[15:49:39]    👆 Tapping song row at (229, 807)
+[15:49:39]    👆 Tap: Song 2 (229,807)
+[15:49:54]    ❌ Timed out waiting for Playback to start
+[15:49:54]    ⚠️ Playback not confirmed, skipping
+[15:49:57] 
+   🎵 Song 3: Song 3
+[15:49:57]    👆 Tapping song row at (227, 951)
+[15:49:57]    👆 Tap: Song 3 (227,951)
+[15:50:11]    ❌ Timed out waiting for Playback to start
+[15:50:11]    ⚠️ Playback not confirmed, skipping
+[15:50:14] 
+   🎵 Song 4: Song 4
+[15:50:14]    👆 Tapping song row at (226, 1101)
+[15:50:14]    👆 Tap: Song 4 (226,1101)
+[15:50:29]    ❌ Timed out waiting for Playback to start
+[15:50:29]    ⚠️ Playback not confirmed, skipping
+[15:50:32] 
+   🎵 Song 5: Song 5
+[15:50:32]    👆 Tapping song row at (226, 1254)
+[15:50:32]    👆 Tap: Song 5 (226,1254)
+[15:50:46]    ❌ Timed out waiting for Playback to start
+[15:50:46]    ⚠️ Playback not confirmed, skipping
+[15:50:49] 
+📊 Round 2: +0 streams | Total: 0/10
+[15:50:49] 😴 Break: 21s...
+[15:50:53] 
+⚠️ Bot interrupted by user
+[15:50:53] 
+[15:50:53] =======================================================
+[15:50:53] ✅ DONE! 0/10 streams for Wakadinali
+[15:50:53] =======================================================
+[15:53:02] =======================================================
+[15:53:02] 🎵 Spotify Bot — UI Automator Control
+[15:53:02] 🎤 Artist: Wakadinali
+[15:53:02] 🎯 Target: 10 streams
+[15:53:02] ⏱️ Per song: 35s
+[15:53:02] =======================================================
+[15:53:02] ✅ ADB device detected
+[15:53:02] Starting in 5 seconds...
+[15:53:07] 
+🔄 ROUND 1 | ✅ 0/10
+
+[15:53:07] 📱 Opening Spotify...
+[15:53:07] 🔓 Waking and unlocking phone...
+[15:53:20] ━━━ STEP 1: Reset to Home ━━━
+[15:53:20]    👆 Tap: Home tab (100,2328)
+[15:53:28] ━━━ STEP 2: Open Search ━━━
+[15:53:32]    👆 Tap: Search tab (attempt 1) (324,2287)
+[15:53:50]    ✅ Search screen
+[15:53:50] ━━━ STEP 3: Search Wakadinali ━━━
+[15:53:50]    🔍 Ensuring search field is ready
+[15:53:51]    🔍 Focusing search field
+[15:53:51]    Trying known coordinate (350, 124)
+[15:53:51]    👆 Tap: Known search field (350,124)
+[15:53:54]    Known coordinate failed, trying UI detection
+[15:53:58]    Found search field via placeholder text at (397,332)
+[15:53:58]    UI detected search field at (397, 332)
+[15:53:58]    👆 Tap: UI-detected search field (397,332)
+[15:54:01]    ✅ Keyboard is visible
+[15:54:01]    🧹 Clearing search field
+[15:54:04]    ⌨️ Typing: "Wakadinali"
+[15:54:10]    ✅ Verified text in search field: "Wakadinali"
+[15:54:10]    ⌨️ Pressing Enter
+[15:54:16]    ✅ Search results
+[15:54:16] ━━━ STEP 4: Open Artist 'Wakadinali' ━━━
+[15:54:20]    👆 Tap: Artist: Wakadinali (320,560)
+[15:54:30]    ✅ Artist page
+[15:54:30] ━━━ STEP 5: Follow Artist ━━━
+[15:54:34]    👆 Tap: Follow (276,971)
+[15:54:37] ━━━ STEP 6: Stream Songs ━━━
+[15:54:37]    📜 Scrolling to songs...
+[15:54:43]    ⚠️ No song rows found dynamically, using fallback
+[15:54:43]    Found 5 songs to stream
+[15:54:43] 
+   🎵 Song 1: Song 1
+[15:54:43]    👆 Tapping song row at (232, 655)
+[15:54:43]    👆 Tap: Song 1 (232,655)
+[15:54:58]    ❌ Timed out waiting for Playback to start
+[15:54:58]    ⚠️ Playback not confirmed, skipping
+[15:55:01] 
+   🎵 Song 2: Song 2
+[15:55:01]    👆 Tapping song row at (229, 807)
+[15:55:01]    👆 Tap: Song 2 (229,807)
+[15:55:16]    ❌ Timed out waiting for Playback to start
+[15:55:16]    ⚠️ Playback not confirmed, skipping
+[15:55:19] 
+⚠️ Bot interrupted by user
+[15:55:19] 
+[15:55:19] =======================================================
+[15:55:19] ✅ DONE! 0/10 streams for Wakadinali
+[15:55:19] =======================================================
+[16:40:02] =======================================================
+[16:40:02] 🎵 Spotify Bot — UI Automator Control
+[16:40:02] 🎤 Artist: Wakadinali
+[16:40:02] 🎯 Target: 10 streams
+[16:40:02] ⏱️ Per song: 35s
+[16:40:02] =======================================================
+[16:40:02] ❌ No ADB device detected.
+[16:40:19] =======================================================
+[16:40:19] 🎵 Spotify Bot — UI Automator Control
+[16:40:19] 🎤 Artist: Wakadinali
+[16:40:19] 🎯 Target: 10 streams
+[16:40:19] ⏱️ Per song: 35s
+[16:40:19] =======================================================
+[16:40:19] ❌ No ADB device detected.
