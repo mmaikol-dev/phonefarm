@@ -10,9 +10,11 @@ import random
 
 import json
 
-genai.configure(api_key="AIzaSyCfyU_Ifv9W-Y5K9EzS7ZKBYZ-xb-ewgFw")
+genai.configure(api_key="AIzaSyAegv4fvv_jzu2t5UgquxA0zmSk-HB8qYg")
 
 model = genai.GenerativeModel('gemini-3-flash-preview')
+
+INSTAGRAM_PACKAGE = 'com.instagram.android'
 
 def capture_screen():
 
@@ -37,6 +39,22 @@ def swipe_up():
     ])
 
     time.sleep(random.uniform(1.5, 3.0))
+
+def open_instagram():
+
+    subprocess.run([
+
+        'adb', 'shell', 'monkey',
+
+        '-p', INSTAGRAM_PACKAGE,
+
+        '-c', 'android.intent.category.LAUNCHER',
+
+        '1'
+
+    ], check=True)
+
+    time.sleep(5)
 
 def ask_gemini(image, prompt):
 
@@ -85,6 +103,10 @@ def get_like_button_coords(image):
 # ── MAIN LOOP ─────────────────────────────────────
 
 print("🤖 Instagram Auto-Liker Starting...")
+
+print("📲 Opening Instagram on phone...")
+
+open_instagram()
 
 print("⚠️  Make sure Instagram Reels is open on phone")
 

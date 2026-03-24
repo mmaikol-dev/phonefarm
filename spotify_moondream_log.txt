@@ -1,0 +1,264 @@
+[12:30:29] ==========================================================
+[12:30:29] 🎵 Spotify Bot — Moondream Vision
+[12:30:29] 🎤 Artist: Wakadinali
+[12:30:29] 🤖 Model: moondream:latest
+[12:30:29] 🎯 Target: 10 streams
+[12:30:29] ⏱️ Per song: 35s
+[12:30:29] ==========================================================
+[12:30:29] Starting in 5 seconds...
+[12:30:34] 
+🔄 ROUND 1 | ✅ 0/10
+
+[12:30:34] 📱 Opening Spotify...
+[12:30:34] 🔓 Waking and unlocking phone...
+[12:30:47] ━━━ STEP 1: Reset Spotify ━━━
+[12:30:47]    👆 Tap: Home tab (100,2328)
+[12:30:51] ━━━ STEP 2: Open Search ━━━
+[12:36:41] ==========================================================
+[12:36:41] 🎵 Spotify Bot — Moondream Vision
+[12:36:41] 🎤 Artist: Wakadinali
+[12:36:41] 🤖 Model: moondream:latest
+[12:36:41] 🎯 Target: 10 streams
+[12:36:41] ⏱️ Per song: 35s
+[12:36:41] ==========================================================
+[12:36:41] Starting in 5 seconds...
+[12:36:46] 
+🔄 ROUND 1 | ✅ 0/10
+
+[12:36:46] 📱 Opening Spotify...
+[12:36:46] 🔓 Waking and unlocking phone...
+[12:36:58] ━━━ STEP 1: Reset Spotify ━━━
+[12:36:58]    👆 Tap: Home tab (100,2328)
+[12:37:02] ━━━ STEP 2: Open Search ━━━
+[12:38:45]    ⚠️ Moondream could not confirm the Search tab in the bottom navigation bar, using fallback 324,2288
+[12:38:45]    👆 Tap: Search tab (324,2288)
+[12:39:39] ==========================================================
+[12:39:39] 🎵 Spotify Bot — Moondream Vision
+[12:39:39] 🎤 Artist: Wakadinali
+[12:39:39] 🤖 Model: moondream:latest
+[12:39:39] 🎯 Target: 10 streams
+[12:39:39] ⏱️ Per song: 35s
+[12:39:39] ==========================================================
+[12:39:39] Starting in 5 seconds...
+[12:39:44] 
+🔄 ROUND 1 | ✅ 0/10
+
+[12:39:44] 📱 Opening Spotify...
+[12:39:44] 🔓 Waking and unlocking phone...
+[12:39:56] ━━━ STEP 1: Reset Spotify ━━━
+[12:39:56]    👆 Tap: Home tab (100,2328)
+[12:40:00] ━━━ STEP 2: Open Search ━━━
+[12:41:41]    ⚠️ Moondream could not confirm the Search tab in the bottom navigation bar, using fallback 324,2288
+[12:41:41]    👆 Tap: Search tab (324,2288)
+[12:43:15]    📱 Detected screen after Search tap: other
+[12:43:15] ❌ Could not confirm Search screen. Retrying round.
+[12:43:15] 
+🔄 ROUND 2 | ✅ 0/10
+
+[12:43:15] 📱 Opening Spotify...
+[12:43:15] 🔓 Waking and unlocking phone...
+[12:43:29] ━━━ STEP 1: Reset Spotify ━━━
+[12:43:29]    👆 Tap: Home tab (100,2328)
+[12:43:33] ━━━ STEP 2: Open Search ━━━
+[12:54:41] ==========================================================
+[12:54:41] 🎵 Spotify Bot — Moondream Vision
+[12:54:41] 🎤 Artist: Wakadinali
+[12:54:41] 🤖 Model: moondream:latest
+[12:54:41] 🎯 Target: 10 streams
+[12:54:41] ⏱️ Per song: 35s
+[12:54:41] ==========================================================
+[12:54:41] Starting in 5 seconds...
+[12:54:46] 
+🔄 ROUND 1 | ✅ 0/10
+
+[12:54:46] 📱 Opening Spotify...
+[12:54:46] 🔓 Waking and unlocking phone...
+[12:55:00] ━━━ STEP 1: Reset Spotify ━━━
+[12:55:00]    👆 Tap: Home tab (candidate 1) (100,2328)
+[12:55:05] ━━━ STEP 2: Open Search ━━━
+[12:55:09]    ⚠️ UI dump attempt 1 returned invalid XML
+[12:55:13]    ⚠️ UI dump attempt 2 returned invalid XML
+[12:55:16]    ⚠️ UI dump attempt 3 returned invalid XML
+[12:55:20]    ⚠️ UI dump attempt 4 returned invalid XML
+[12:55:24]    ⚠️ UI dump attempt 5 returned invalid XML
+[12:55:25]    👆 Tap: Search tab (candidate 1) (324,2288)
+[12:55:37] ==========================================================
+[12:55:37] 🎵 Spotify Bot — Moondream Vision
+[12:55:37] 🎤 Artist: Wakadinali
+[12:55:37] 🤖 Model: moondream:latest
+[12:55:37] 🎯 Target: 10 streams
+[12:55:37] ⏱️ Per song: 35s
+[12:55:37] ==========================================================
+[12:55:37] Starting in 5 seconds...
+[12:55:42] 
+🔄 ROUND 1 | ✅ 0/10
+
+[12:55:42] 📱 Opening Spotify...
+[12:55:42] 🔓 Waking and unlocking phone...
+[12:55:55] ━━━ STEP 1: Reset Spotify ━━━
+[12:55:55]    👆 Tap: Home tab (candidate 1) (100,2328)
+[12:55:59] ━━━ STEP 2: Open Search ━━━
+[12:56:03]    ⚠️ UI dump attempt 1 returned invalid XML
+[12:56:07]    ⚠️ UI dump attempt 2 returned invalid XML
+[12:56:11]    ⚠️ UI dump attempt 3 returned invalid XML
+[12:56:14]    ⚠️ UI dump attempt 4 returned invalid XML
+[12:56:19]    ⚠️ UI dump attempt 5 returned invalid XML
+[12:56:19]    👆 Tap: Search tab (candidate 1) (324,2288)
+[12:57:25] ==========================================================
+[12:57:25] 🎵 Spotify Bot — Moondream Vision
+[12:57:25] 🎤 Artist: Wakadinali
+[12:57:25] 🤖 Model: moondream:latest
+[12:57:25] 🎯 Target: 10 streams
+[12:57:25] ⏱️ Per song: 35s
+[12:57:25] ==========================================================
+[12:57:25] Starting in 5 seconds...
+[12:57:30] 
+🔄 ROUND 1 | ✅ 0/10
+
+[12:57:30] 📱 Opening Spotify...
+[12:57:30] 🔓 Waking and unlocking phone...
+[12:57:43] ━━━ STEP 1: Reset Spotify ━━━
+[12:57:43]    👆 Tap: Home tab (candidate 1) (100,2328)
+[12:57:48] ━━━ STEP 2: Open Search ━━━
+[12:57:51]    ⚠️ UI dump attempt 1 returned invalid XML
+[12:57:55]    ⚠️ UI dump attempt 2 returned invalid XML
+[12:57:59]    ⚠️ UI dump attempt 3 returned invalid XML
+[12:58:03]    ⚠️ UI dump attempt 4 returned invalid XML
+[12:58:07]    ⚠️ UI dump attempt 5 returned invalid XML
+[12:58:07]    👆 Tap: Search tab (candidate 1) (324,2288)
+[12:58:13]    ⚠️ UI dump attempt 1 returned invalid XML
+[12:58:17]    ⚠️ UI dump attempt 2 returned invalid XML
+[12:58:20]    ⚠️ UI dump attempt 3 returned invalid XML
+[12:58:24]    ⚠️ UI dump attempt 4 returned invalid XML
+[12:58:27]    ⚠️ UI dump attempt 5 returned invalid XML
+[12:58:30]    ⚠️ UI dump attempt 1 returned invalid XML
+[12:58:35]    ⚠️ UI dump attempt 2 returned invalid XML
+[12:58:39]    ⚠️ UI dump attempt 3 returned invalid XML
+[12:58:43]    ⚠️ UI dump attempt 4 returned invalid XML
+[12:58:47]    ⚠️ UI dump attempt 5 returned invalid XML
+[12:58:51]    ⚠️ UI dump attempt 1 returned invalid XML
+[12:58:55]    ⚠️ UI dump attempt 2 returned invalid XML
+[12:58:59]    ⚠️ UI dump attempt 3 returned invalid XML
+[12:59:03]    ⚠️ UI dump attempt 4 returned invalid XML
+[12:59:07]    ⚠️ UI dump attempt 5 returned invalid XML
+[12:59:11]    ⚠️ UI dump attempt 1 returned invalid XML
+[12:59:15]    ⚠️ UI dump attempt 2 returned invalid XML
+[12:59:19]    ⚠️ UI dump attempt 3 returned invalid XML
+[12:59:30] ==========================================================
+[12:59:30] 🎵 Spotify Bot — Moondream Vision
+[12:59:30] 🎤 Artist: Wakadinali
+[12:59:30] 🤖 Model: moondream:latest
+[12:59:30] 🎯 Target: 10 streams
+[12:59:30] ⏱️ Per song: 35s
+[12:59:30] ==========================================================
+[12:59:30] Starting in 5 seconds...
+[12:59:35] 
+🔄 ROUND 1 | ✅ 0/10
+
+[12:59:35] 📱 Opening Spotify...
+[12:59:35] 🔓 Waking and unlocking phone...
+[12:59:47] ━━━ STEP 1: Reset Spotify ━━━
+[12:59:47]    👆 Tap: Home tab (candidate 1) (100,2328)
+[12:59:52] ━━━ STEP 2: Open Search ━━━
+[12:59:56]    👆 Tap: Search tab (candidate 1) (324,2288)
+[13:00:15]    📱 Detected screen after Search tap: playing
+[13:00:15] ❌ Could not confirm Search screen. Retrying round.
+[13:00:15] 
+🔄 ROUND 2 | ✅ 0/10
+
+[13:00:15] 📱 Opening Spotify...
+[13:00:15] 🔓 Waking and unlocking phone...
+[13:01:37] ==========================================================
+[13:01:37] 🎵 Spotify Bot — Moondream Vision
+[13:01:37] 🎤 Artist: Wakadinali
+[13:01:37] 🤖 Model: moondream:latest
+[13:01:37] 🎯 Target: 10 streams
+[13:01:37] ⏱️ Per song: 35s
+[13:01:37] ==========================================================
+[13:01:37] Starting in 5 seconds...
+[13:01:42] 
+🔄 ROUND 1 | ✅ 0/10
+
+[13:01:42] 📱 Opening Spotify...
+[13:01:42] 🔓 Waking and unlocking phone...
+[13:01:54] ━━━ STEP 1: Reset Spotify ━━━
+[13:01:54]    👆 Tap: Home tab (candidate 1) (100,2328)
+[13:02:00] ━━━ STEP 2: Open Search ━━━
+[13:02:04]    👆 Tap: Search tab (candidate 1) (324,2287)
+[13:02:32]    📱 Detected screen after Search tap: search
+[13:02:32] ━━━ STEP 3: Search Wakadinali ━━━
+[13:02:38]    👆 Tap: Search field (350,124)
+[13:02:43]    ⌨️ Type: Wakadinali
+[13:03:15] ==========================================================
+[13:03:15] 🎵 Spotify Bot — Moondream Vision
+[13:03:15] 🎤 Artist: Wakadinali
+[13:03:15] 🤖 Model: moondream:latest
+[13:03:15] 🎯 Target: 10 streams
+[13:03:15] ⏱️ Per song: 35s
+[13:03:15] ==========================================================
+[13:03:15] Starting in 5 seconds...
+[13:03:20] 
+🔄 ROUND 1 | ✅ 0/10
+
+[13:03:20] 📱 Opening Spotify...
+[13:03:20] 🔓 Waking and unlocking phone...
+[13:03:32] ━━━ STEP 1: Reset Spotify ━━━
+[13:03:32]    👆 Tap: Home tab (candidate 1) (100,2328)
+[13:03:37] ━━━ STEP 2: Open Search ━━━
+[13:03:41]    👆 Tap: Search tab (candidate 1) (324,2287)
+[13:04:09]    📱 Detected screen after Search tap: search
+[13:04:09] ━━━ STEP 3: Search Wakadinali ━━━
+[13:04:16]    👆 Tap: Search field (350,124)
+[13:04:21]    ⌨️ Type: Wakadinali
+[13:04:40]    📱 Detected screen after search: search
+[13:04:40] ❌ Could not confirm search results. Retrying round.
+[13:04:40] 
+🔄 ROUND 2 | ✅ 0/10
+
+[13:04:40] 📱 Opening Spotify...
+[13:04:40] 🔓 Waking and unlocking phone...
+[13:04:52] ━━━ STEP 1: Reset Spotify ━━━
+[13:04:52]    👆 Tap: Home tab (candidate 1) (100,2328)
+[13:04:57] ━━━ STEP 2: Open Search ━━━
+[13:05:00]    👆 Tap: Search tab (candidate 1) (324,2287)
+[13:05:27]    📱 Detected screen after Search tap: search
+[13:05:27] ━━━ STEP 3: Search Wakadinali ━━━
+[13:05:32]    👆 Tap: Search field (350,124)
+[13:05:37]    ⌨️ Type: Wakadinali
+[13:05:48]    📱 Detected screen after search: search
+[13:05:48] ❌ Could not confirm search results. Retrying round.
+[13:05:48] 
+🔄 ROUND 3 | ✅ 0/10
+
+[13:05:48] 📱 Opening Spotify...
+[13:05:48] 🔓 Waking and unlocking phone...
+[13:06:00] ━━━ STEP 1: Reset Spotify ━━━
+[13:06:00]    👆 Tap: Home tab (candidate 1) (100,2328)
+[13:06:05] ━━━ STEP 2: Open Search ━━━
+[13:07:59] ==========================================================
+[13:07:59] 🎵 Spotify Bot — Moondream Vision
+[13:07:59] 🎤 Artist: Wakadinali
+[13:07:59] 🤖 Model: moondream:latest
+[13:07:59] 🎯 Target: 10 streams
+[13:07:59] ⏱️ Per song: 35s
+[13:07:59] ==========================================================
+[13:07:59] Starting in 5 seconds...
+[13:08:04] 
+🔄 ROUND 1 | ✅ 0/10
+
+[13:08:04] 📱 Opening Spotify...
+[13:08:04] 🔓 Waking and unlocking phone...
+[13:08:17] ━━━ STEP 1: Reset Spotify ━━━
+[13:08:17]    👆 Tap: Home tab (candidate 1) (100,2328)
+[13:08:22] ━━━ STEP 2: Open Search ━━━
+[13:08:26]    👆 Tap: Search tab (candidate 1) (324,2287)
+[13:09:59]    Attempt 1: Got playing, retrying...
+[13:09:59]    🔄 Force closing Spotify and retrying...
+[13:10:02] 📱 Opening Spotify...
+[13:10:02] 🔓 Waking and unlocking phone...
+[13:10:23] 
+⚠️ Bot interrupted by user
+[13:10:23] 
+[13:10:23] ==========================================================
+[13:10:23] ✅ DONE! 0 streams for Wakadinali
+[13:10:23] ==========================================================

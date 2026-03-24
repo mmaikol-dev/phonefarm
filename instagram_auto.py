@@ -14,6 +14,7 @@ LOG_FILE = "instagram_log.txt"
 
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('gemini-3-flash-preview')
+INSTAGRAM_PACKAGE = 'com.instagram.android'
 
 # ── EXACT COORDINATES FOR REDMI NOTE 10 PRO (1080x2400) ──
 COORDS = {
@@ -71,6 +72,15 @@ def swipe_to_next():
         '400'
     ])
     time.sleep(random.uniform(2.0, 3.5))
+
+def open_instagram():
+    subprocess.run([
+        'adb', 'shell', 'monkey',
+        '-p', INSTAGRAM_PACKAGE,
+        '-c', 'android.intent.category.LAUNCHER',
+        '1'
+    ], check=True)
+    time.sleep(5)
 
 def human_pause(min_sec=2, max_sec=5):
     pause = random.uniform(min_sec, max_sec)
@@ -152,6 +162,8 @@ def run():
     log("🤖 Instagram Automation Started")
     log(f"🎯 Target: {MAX_LIKES} likes, {MAX_FOLLOWS} follows")
     log("=" * 50)
+    log("📲 Opening Instagram on phone...")
+    open_instagram()
     log("📱 Make sure Instagram Reels is open on phone")
     log("▶️  Starting in 5 seconds...")
     time.sleep(5)
