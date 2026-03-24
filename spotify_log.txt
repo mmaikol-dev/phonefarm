@@ -288,3 +288,92 @@
 [21:23:25]    👆 Tap: Home tab (108,2288)
 [21:23:28] ━━━ STEP 2: Open Search ━━━
 [21:23:31]    👆 Tap: Search tab (default) (324,2288)
+[21:23:59]    🧠 Gemini call #3...
+[21:24:01]    ⚠️  Error: 403 Your API key was reported as leaked. Please use another API key.
+[21:24:01]    Current screen: other
+[21:24:01] ⚠️  Got 'other' — asking Gemini to find search tab...
+[21:24:15] =======================================================
+[21:24:15] 🎵 Spotify Bot — Fully Dynamic
+[21:24:15] 🎤 Artist:  Wakadinali
+[21:24:15] 🎯 Target:  10 streams
+[21:24:15] ⏱️  Per song: 35s
+[21:24:15] 🤖 Model: gemini-3-flash-preview
+[21:24:15] =======================================================
+[21:24:15] Starting in 5 seconds...
+[21:24:20] 
+🔄 ROUND 1 | ✅ 0/10
+
+[21:24:20] 📱 Opening Spotify...
+[21:24:26] ━━━ Going Home ━━━
+[21:24:26]    Foreground package: com.spotify.music
+[21:24:26]    👆 Tap: Home tab (108,2288)
+[21:24:29] ━━━ STEP 2: Open Search ━━━
+[21:24:32]    👆 Tap: Search tab (default) (324,2288)
+[21:25:01]    🧠 Gemini call #1...
+[21:25:07]    💬 Answer: search
+[21:25:07]    Current screen: search
+[21:25:07] ✅ On search page!
+[21:25:07] ━━━ STEP 3: Search for Artist ━━━
+[21:25:30]    🧠 Gemini call #2...
+[21:25:36]    💬 Answer: search
+[21:25:51]    🧠 Gemini call #3...
+[21:26:02]    💬 Answer: 540,330
+[21:26:02]    Search bar found at: 540,330
+[21:26:02]    👆 Tap: Search bar (540,330)
+[21:26:05]    ⌨️  Type: Wakadinali
+[21:26:28]    🧠 Gemini call #4...
+[21:26:34]    💬 Answer: results
+[21:26:34]    After search: results
+[21:26:34] ━━━ STEP 4: Tap Artist 'Wakadinali' ━━━
+[21:26:51]    🧠 Gemini call #5...
+[21:27:02]    💬 Answer: 400,235
+[21:27:02]    Artist found at: 400,235
+[21:27:02]    👆 Tap: Artist: Wakadinali (400,235)
+[21:27:23]    🧠 Gemini call #6...
+[21:29:08] =======================================================
+[21:29:08] 🎵 Spotify Bot — Fully Dynamic
+[21:29:08] 🎤 Artist:  Wakadinali
+[21:29:08] 🎯 Target:  10 streams
+[21:29:08] ⏱️  Per song: 35s
+[21:29:08] 🤖 Control: adb + uiautomator
+[21:29:08] =======================================================
+[21:29:08] Starting in 5 seconds...
+[21:29:13] 
+🔄 ROUND 1 | ✅ 0/10
+
+[21:29:13] 📱 Opening Spotify...
+[21:29:19] ━━━ Going Home ━━━
+[21:29:19]    Foreground package: com.spotify.music
+[21:29:19]    👆 Tap: Home tab (108,2288)
+[21:29:22] ━━━ STEP 2: Open Search ━━━
+[21:29:31]    👆 Tap: Search tab (default, attempt 1) (324,2288)
+[21:30:00]    ❌ Timed out waiting for Search screen
+[21:30:09]    👆 Tap: Search tab (default, attempt 2) (324,2288)
+[21:30:37]    ❌ Timed out waiting for Search screen
+[21:30:46]    👆 Tap: Search tab (default, attempt 3) (324,2288)
+[21:31:17]    ❌ Timed out waiting for Search screen
+[21:31:17] ❌ Search failed — retrying round
+[21:31:17] 
+🔄 ROUND 2 | ✅ 0/10
+
+[21:31:17] 📱 Opening Spotify...
+[21:31:24] ━━━ Going Home ━━━
+[21:31:24]    Foreground package: com.spotify.music
+[21:31:24]    👆 Tap: Home tab (108,2288)
+[21:31:28] ━━━ STEP 2: Open Search ━━━
+[21:31:37]    👆 Tap: Search tab (default, attempt 1) (324,2288)
+[21:32:09]    ❌ Timed out waiting for Search screen
+[21:32:18]    👆 Tap: Search tab (default, attempt 2) (324,2288)
+[21:32:46]    ❌ Timed out waiting for Search screen
+[21:32:54]    👆 Tap: Search tab (default, attempt 3) (324,2288)
+[21:33:23]    ❌ Timed out waiting for Search screen
+[21:33:24] ❌ Search failed — retrying round
+[21:33:24] 
+🔄 ROUND 3 | ✅ 0/10
+
+[21:33:24] 📱 Opening Spotify...
+[21:33:30] ━━━ Going Home ━━━
+[21:33:31]    Foreground package: com.spotify.music
+[21:33:31]    👆 Tap: Home tab (108,2288)
+[21:33:34] ━━━ STEP 2: Open Search ━━━
+[21:33:43]    👆 Tap: Search tab (default, attempt 1) (324,2288)

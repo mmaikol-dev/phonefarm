@@ -11,11 +11,13 @@ import re
 import xml.etree.ElementTree as ET
 
 # ── CONFIG ────────────────────────────────────────
-API_KEY        = "AIzaSyCfyU_Ifv9W-Y5K9EzS7ZKBYZ-xb-ewgFw"
+API_KEY        = "AIzaSyBuyKuvILwZKLGjfNfIOgaWBIICEUNJSdE"
 ARTIST_NAME    = "Wakadinali"
 STREAMS_TARGET = 10
 STREAM_SECONDS = 35
 LOG_FILE       = "spotify_log.txt"
+UI_WAIT_SECONDS = 12
+UI_POLL_SECONDS = 0.8
 
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('gemini-3-flash-preview')
@@ -111,9 +113,15 @@ def get_foreground_package():
 
 # ── GEMINI ────────────────────────────────────────
 gemini_call_count = 0
+gemini_enabled = True
 
 def ask(image, question):
+    global gemini_enabled
     global gemini_call_count
+
+    if not gemini_enabled:
+        return ""
+
     gemini_call_count += 1
 
     # Rate limit — max 5 calls per minute on free tier
@@ -131,6 +139,9 @@ def ask(image, question):
             log("   ⏳ Rate limit — waiting 60s...")
             time.sleep(60)
             return ask(image, question)
+        if '403' in str(e):
+            gemini_enabled = False
+            log("   ⚠️  Gemini disabled for this run")
         log(f"   ⚠️  Error: {e}")
         return ""
 
@@ -149,20 +160,24 @@ def bounds_center(bounds):
     return (x1 + x2) // 2, (y1 + y2) // 2
 
 def dump_ui():
-    result = subprocess.run(
-        ['adb', 'exec-out', 'uiautomator', 'dump', '/dev/tty'],
-        capture_output=True,
-        text=True
-    )
-    if result.returncode != 0:
-        return None
-    xml_start = result.stdout.find('<?xml')
-    if xml_start == -1:
-        return None
-    try:
-        return ET.fromstring(result.stdout[xml_start:])
-    except ET.ParseError:
-        return None
+    for _ in range(3):
+        result = subprocess.run(
+            ['adb', 'exec-out', 'uiautomator', 'dump', '/dev/tty'],
+            capture_output=True,
+            text=True
+        )
+        if result.returncode != 0:
+            time.sleep(0.4)
+            continue
+        xml_start = result.stdout.find('<?xml')
+        if xml_start == -1:
+            time.sleep(0.4)
+            continue
+        try:
+            return ET.fromstring(result.stdout[xml_start:])
+        except ET.ParseError:
+            time.sleep(0.4)
+    return None
 
 def find_first_node(root, predicate):
     if root is None:
@@ -279,15 +294,64 @@ def find_search_results_rows():
             rows.append(node)
     return rows
 
-def find_search_tab_coords():
+def has_resource_id(resource_id):
+    return find_node_by_resource_id(resource_id) is not None
+
+def wait_for(description, predicate, timeout=UI_WAIT_SECONDS, poll=UI_POLL_SECONDS):
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            if predicate():
+                log(f"   ✅ {description}")
+                return True
+        except Exception:
+            pass
+        time.sleep(poll)
+    log(f"   ❌ Timed out waiting for {description}")
+    return False
+
+def is_search_screen():
+    return (
+        has_resource_id('com.spotify.music:id/search_root')
+        or has_resource_id('com.spotify.music:id/search_field_root')
+        or has_resource_id('com.spotify.music:id/query')
+    )
+
+def is_search_results_screen():
+    return (
+        has_resource_id('com.spotify.music:id/search_content_recyclerview')
+        and len(find_search_results_rows()) > 0
+    )
+
+def is_now_playing_visible():
+    return has_resource_id('com.spotify.music:id/now_playing_bar_layout')
+
+def clear_search_query_if_needed():
+    node = find_node_by_resource_id('com.spotify.music:id/clear_query_button')
+    if node:
+        x, y = node_center(node)
+        tap(x, y, "Clear search")
+        time.sleep(0.8)
+
+def find_search_tab_button_coords():
     root = dump_ui()
     node = find_first_node(
         root,
-        lambda item: node_clickable(item) and node_has_desc_prefix(item, 'Search, Tab')
+        lambda item: node_has_desc_prefix(item, 'Search, Tab')
     )
     if not node:
         return None, None
-    return node_center(node)
+
+    clickable_node = node
+    if not node_clickable(node):
+        for child in child_nodes(node):
+            if node_clickable(child):
+                clickable_node = child
+                break
+    return node_center(clickable_node)
+
+def find_search_tab_coords():
+    return find_search_tab_button_coords()
 
 def find_search_field_coords():
     for resource_id in (
@@ -437,74 +501,40 @@ def step_go_home():
 def step_go_to_search():
     log("━━━ STEP 2: Open Search ━━━")
 
-    x, y = find_search_tab_coords()
-    if x and y:
-        tap(x, y, "Search tab (UI dump)")
-    else:
-        tap(*COORDS['search_tab'], "Search tab (default)")
-    time.sleep(2.5)
-
-    # Check what screen we're on
-    screen = capture()
-    if find_search_field_coords() != (None, None):
-        log("✅ Search field detected from UI dump")
-        return True, screen
-
-    current = what_screen_is_this(screen)
-    log(f"   Current screen: {current}")
-
-    if current in ('search', 'search_active'):
-        log("✅ On search page!")
-        return True, screen
-    else:
-        log(f"⚠️  Got '{current}' — asking Gemini to find search tab...")
-        # Ask Gemini to find the actual search tab
-        x, y = find_element_coords(screen,
-            "The Search icon/tab in the bottom navigation bar of Spotify")
+    for attempt in range(1, 4):
+        x, y = find_search_tab_coords()
         if x and y:
-            log(f"   Gemini found search tab at: {x},{y}")
-            tap(x, y, "Search tab (Gemini found)")
-            time.sleep(2.5)
-            screen = capture()
-            return True, screen
+            tap(x, y, f"Search tab (UI dump, attempt {attempt})")
         else:
-            log("❌ Could not find search tab")
-            return False, screen
+            tap(*COORDS['search_tab'], f"Search tab (default, attempt {attempt})")
+
+        if wait_for("Search screen", is_search_screen, timeout=5):
+            return True, capture()
+
+    return False, capture()
 
 def step_activate_and_type():
     log("━━━ STEP 3: Search for Artist ━━━")
 
-    screen = capture()
+    if not wait_for("Search field", lambda: find_search_field_coords() != (None, None), timeout=6):
+        return capture()
+
     search_field_x, search_field_y = find_search_field_coords()
-    current = 'search_active' if search_field_x and search_field_y else what_screen_is_this(screen)
-
-    if current != 'search_active':
-        if search_field_x and search_field_y:
-            log(f"   Search field found from UI dump at: {search_field_x},{search_field_y}")
-            tap(search_field_x, search_field_y, "Search field (UI dump)")
-        else:
-            x, y = find_element_coords(screen,
-                "The search input field/bar that says 'What do you want to listen to?' in Spotify")
-
-            if x and y:
-                log(f"   Search bar found at: {x},{y}")
-                tap(x, y, "Search bar")
-            else:
-                log("   Using default search bar position")
-                tap(360, 216, "Search bar (default)")
-
-        time.sleep(1.5)
+    tap(search_field_x, search_field_y, "Search field (UI dump)")
+    time.sleep(0.8)
+    clear_search_query_if_needed()
 
     # Type artist name
     type_text(ARTIST_NAME)
     time.sleep(1)
     press_enter()
-    time.sleep(3)
 
-    screen = capture()
-    current = what_screen_is_this(screen)
-    log(f"   After search: {current}")
-    return screen
+    wait_for(
+        f"Results for {ARTIST_NAME}",
+        lambda: find_artist_result_coords(ARTIST_NAME) != (None, None),
+        timeout=8
+    )
+    return capture()
 
 def step_tap_artist(screen):
     log(f"━━━ STEP 4: Tap Artist '{ARTIST_NAME}' ━━━")
@@ -514,43 +544,29 @@ def step_tap_artist(screen):
         log(f"   Artist found from UI dump at: {x},{y}")
         tap(x, y, f"Artist: {ARTIST_NAME} (UI dump)")
     else:
-        # Ask Gemini to find the Artist result
-        x, y = find_element_coords(screen, f"""
-            The search result row showing '{ARTIST_NAME}'
-            with the label 'Artist' underneath it.
-            NOT a playlist or song.
-            Tap the left-center of the artist row, not the image, not the menu.
-        """)
+        log("❌ Artist row not found from UI dump")
+        return False, screen
 
-        if x and y:
-            log(f"   Artist found at: {x},{y}")
-            tap(x, y, f"Artist: {ARTIST_NAME}")
-        else:
-            log("   Using default artist position")
-            tap(360, 880, "Artist (default)")
+    success = wait_for(
+        "Artist page",
+        lambda: not is_search_screen() and not is_search_results_screen(),
+        timeout=6
+    )
 
-    time.sleep(3)
-
-    screen = capture()
-    current = what_screen_is_this(screen)
-    log(f"   After tap: {current}")
-
-    return current == 'artist', screen
+    return success, capture()
 
 def step_follow_artist(screen):
     log("━━━ STEP 5: Follow Artist ━━━")
 
     x, y = find_follow_button_coords()
     if not (x and y):
-        x, y = find_element_coords(screen,
-            "The Follow button on this Spotify artist page")
+        log("ℹ️  Follow button not found in current UI dump")
+        return
 
     if x and y:
         log(f"   Follow button at: {x},{y}")
         tap(x, y, "Follow")
         log("✅ Followed!")
-    else:
-        log("ℹ️  Follow button not found (may already follow)")
 
 def find_song_row_coords(screen, ordinal):
     song_coords = find_song_row_coords_from_ui()
@@ -565,11 +581,7 @@ def find_song_row_coords(screen, ordinal):
     if index is not None and index < len(song_coords):
         return song_coords[index]
 
-    return find_element_coords(screen, f"""
-        The {ordinal} visible song row in the Popular songs list on this Spotify artist page.
-        Return coordinates for the song title area on the left side of the row.
-        Do NOT tap the three-dot menu, overflow button, or any play/shuffle/follow controls.
-    """)
+    return None, None
 
 def step_stream_songs(screen):
     log("━━━ STEP 6: Stream Songs ━━━")
@@ -583,32 +595,20 @@ def step_stream_songs(screen):
         x, y = find_song_row_coords(refresh, ordinal)
 
         if not (x and y):
-            fallback_y = 825 + ((i - 1) * 115)
-            x, y = 360, fallback_y
-            log(f"   Using fallback coords for song {i}: {x},{y}")
-        else:
-            log(f"   Song {i} at: {x},{y}")
+            log(f"   ⚠️  Song {i} not found from UI dump")
+            break
+
+        log(f"   Song {i} at: {x},{y}")
 
         tap(x, y, f"Song {i}")
-        time.sleep(3)
-
-        # Quick check if playing
-        screen = capture()
-        answer = ask(screen, """
-            Is there a song currently playing?
-            Look for a mini player bar at the bottom.
-            Answer ONLY: yes or no
-        """)
-
-        if 'yes' in answer.lower():
+        if wait_for("Now playing bar", is_now_playing_visible, timeout=6):
             log(f"   ▶️  Playing — waiting {STREAM_SECONDS}s...")
-            time.sleep(STREAM_SECONDS + random.randint(0, 8))
+            time.sleep(STREAM_SECONDS + random.randint(0, 5))
             streams += 1
             log(f"   ✅ Stream {streams} counted!")
         else:
-            log(f"   ⚠️  Not confirmed playing — waiting anyway")
-            time.sleep(STREAM_SECONDS)
-            streams += 1
+            log("   ⚠️  Playback not confirmed from UI dump")
+            break
 
         human_pause(2, 4)
 
@@ -621,7 +621,7 @@ def run():
     log(f"🎤 Artist:  {ARTIST_NAME}")
     log(f"🎯 Target:  {STREAMS_TARGET} streams")
     log(f"⏱️  Per song: {STREAM_SECONDS}s")
-    log(f"🤖 Model: gemini-3-flash-preview")
+    log("🤖 Control: adb + uiautomator")
     log("=" * 55)
     log("Starting in 5 seconds...")
     time.sleep(5)
